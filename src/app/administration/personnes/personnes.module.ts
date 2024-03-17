@@ -19,6 +19,8 @@ import {TabViewModule} from 'primeng/tabview';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { FieldsetModule } from 'primeng/fieldset';
+
 @NgModule({
   declarations: [
     ListPersonnesComponent,
@@ -46,6 +48,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
     AvatarGroupModule,
     MultiSelectModule,
     ToastModule,
+    FieldsetModule
   ]
 })
 export class PersonnesModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BreadcrumbService } from 'src/app/app.breadcrumb.service';
 import { FormService } from 'src/app/demo/service/base.service';
 
@@ -14,7 +14,7 @@ export class DetailsPersonnesComponent implements OnInit{
   id: any;
 
 
-  constructor(private route: ActivatedRoute, private service: FormService, private breadcrumbService: BreadcrumbService){
+  constructor(private route: ActivatedRoute, private service: FormService, private breadcrumbService: BreadcrumbService,private router: Router){
       this.breadcrumbService.setItems([
         { label: 'Liste Des Personnes', routerLink:"/administration/personnes/list"},
         { label: 'Details Personnes'},
@@ -34,5 +34,10 @@ export class DetailsPersonnesComponent implements OnInit{
       complete: () =>      this.loads = false,
 
    });
+  }
+  redirect(id){
+    console.log(id)
+    this.router.navigateByUrl(`administration/personnes/details/${id}` )
+    this.ngOnInit()
   }
 }

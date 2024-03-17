@@ -93,7 +93,7 @@
                             <li class="flex w-full align-items-center py-3 px-2 border-top-1 surface-border flex justify-content-between">
                                 <div class="text-500 w-[40%]   font-medium">Commune </div>
                                 <div class="text-center flex justify-content-center align-content-center w-[60%]">
-                                    <span class="text-500 w-full  font-bold text-black-alpha-80">{{personne?.residence?.quartier?.commune?.libelle }}</span>
+                                    <span class="text-500 w-full  font-bold text-black-alpha-80">{{personne?.residence?.quartier?.commune?.commune }}</span>
 
                                 </div>
 
@@ -120,19 +120,17 @@
                                   <th>Noms</th>
                                   <th>Date de Naissance</th>
                                   <th>Region</th>
-                                  <th>Nombre de vulnérabilités</th>
                         
                                 </tr>
                               </ng-template>
                               <ng-template pTemplate="body" let-data>
-                                <tr>
-                                  <td>{{data?.nom}}</td>
+                                <tr style="cursor: pointer;" (click)="redirect(data.id)">
+                                  <td >{{data?.nom}}</td>
                                   <td>
                         
                                       {{data?.date_naissance |date:"MMM, dd yyyy"}}
                                   </td>
-                                  <td>{{data?.region}}</td>
-                                  <td></td>
+                                  <td>{{data?.region?.region}}</td>
    
                                 </tr>
                               </ng-template>

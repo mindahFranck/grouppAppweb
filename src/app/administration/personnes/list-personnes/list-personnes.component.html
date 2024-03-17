@@ -379,49 +379,55 @@
         </div>
 
     </div>
-    <div class="flex align-items-center">
-      <div class="col">  <p-checkbox label="Avez vous une cni ?" [binary]="true" class="mr-4" name="estRedoublant"
-        [(ngModel)]="temporaile.is_cni"
-
-        formArrayName="is_cni"></p-checkbox></div>
-      <div class="col">
-        <p-checkbox label="Avez vous un acte de naissance ?" [binary]="true" name="estNouveau"
-        [(ngModel)]="temporaile.is_actenaissance"
-
-        formControlName="is_actenaissance"></p-checkbox>
-      </div>
-      <div class="col">
-        <p-checkbox label="Etes vous autochtone ?" [binary]="true" name="estNouveau"
-        [(ngModel)]="temporaile.is_autochtone"
-
-        formControlName="is_autochtone"></p-checkbox>
-      </div>
+    <p-fieldset legend="Informations Sur la Personne">
+        <div class="flex align-items-center">
+            <div class="col">  <p-checkbox label="Avez vous une cni ?"
+              
+              [binary]="true" class="mr-4" name="estRedoublant"
+              [(ngModel)]="temporaile.is_cni"
+              formControlName="is_cni"
+              ></p-checkbox></div>
+            <div class="col">
+              <p-checkbox label="Avez vous un acte de naissance ?" [binary]="true" name="estNouveau"
+              [(ngModel)]="temporaile.is_actenaissance"
+      
+              formControlName="is_actenaissance"></p-checkbox>
+            </div>
+            <div class="col">
+              <p-checkbox label="Etes vous autochtone ?" [binary]="true" name="estNouveau"
+              [(ngModel)]="temporaile.is_autochtone"
+      
+              formControlName="is_autochtone"></p-checkbox>
+            </div>
+      
+           
+      
+                
+          </div>
+          <div class="flex align-items-center">
+              <div class="col">
+                  <p-checkbox label="Etes vous handicapé ?" [binary]="true" class="mr-4" name="estRedoublant"
+                  [(ngModel)]="temporaile.is_handicape"
+      
+                  formControlName="is_handicape"></p-checkbox>
+              </div>
+              <div class="col">
+                  <p-checkbox label="Etes vous chef de ménage ?" [binary]="true" name="estNouveau"
+                  [(ngModel)]="temporaile.is_chef_menage"
+                  (onChange)="changeValidator()"
+                  formControlName="is_chef_menage"></p-checkbox>
+              </div>
+              <div class="col">
+      
+              </div>
+      
+      
+             
+      
+          </div>
+    </p-fieldset>
 
      
-
-          
-    </div>
-    <div class="flex align-items-center">
-        <div class="col">
-            <p-checkbox label="Etes vous handicapé ?" [binary]="true" class="mr-4" name="estRedoublant"
-            [(ngModel)]="temporaile.is_handicape"
-
-            formControlName="is_handicape"></p-checkbox>
-        </div>
-        <div class="col">
-            <p-checkbox label="Etes vous chef de ménage ?" [binary]="true" name="estNouveau"
-            [(ngModel)]="temporaile.is_chef_menage"
-            (onChange)="changeValidator()"
-            formControlName="is_chef_menage"></p-checkbox>
-        </div>
-        <div class="col">
-
-        </div>
-
-
-       
-
-    </div>
     <div class="col-12 flex">
         <div class="col mt-2" *ngIf="!is_chef_menage.value">
             <span class="p-float-label">

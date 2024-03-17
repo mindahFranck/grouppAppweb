@@ -17,7 +17,7 @@
                             <input type="text" formControlName="username" placeholder="user " required
                                 pInputText>
                         </div> 
-                        <div *ngIf="username.invalid && (username.touched || username.dirty) ">
+                        <div class="erreur" *ngIf="username.invalid && (username.touched || username.dirty) ">
                             <span class="error fs-6 text-danger mx-2 my-2 " *ngIf="username.errors?.required ">*The
                                 username is required</span>
                 
@@ -32,14 +32,14 @@
                             <input type="password" formControlName="password" class="form-control " required pInputText>
                         </div>
                     </div>
-                    <div *ngIf="password.invalid && (password.touched || password.dirty) ">
+                    <div class="erreur" *ngIf="password.invalid && (password.touched || password.dirty) ">
                         <span class="error fs-6 text-danger mx-2 my-2 " *ngIf="password.errors?.required ">*The Password
                             is Required</span>
                       
 
                     </div>
-                    <span class="error fs-6 text-danger mx-2 my-2 "
-                    *ngIf="subscribError ">*{{subscribError?.message}}.</span>
+                    <span class="erreur fs-6 text-danger mx-2 my-2 "
+                    *ngIf="subscribError ">*Identifiants Incorrects.</span>
                 
                     <div class="checkbox-container" style="padding-left: 10px;">
 
