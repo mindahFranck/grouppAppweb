@@ -1,27 +1,82 @@
 <app-dashoard-skeleton *ngIf="loader"></app-dashoard-skeleton>
-<div *ngIf="!loader" class="card border-round-2xl">
-    <h5 class="font-bold">Details Du Quartier: {{ quartierDetails.libelle}}</h5>
-    <h5 class="font-bold">De la Commune: {{ quartierDetails.commune.libelle}}</h5>
 
+<div *ngIf="!loader">
+    <h3 class="font-bold">Détails du quartier</h3>
+    <!-- New addition -->
+    <section class="flex gap-2 mb-4">
+        <div class="col-6">
+            <li
+                class="flex w-full align-items-center py-3 px-2 border-top-1 surface-border flex justify-content-between">
+                <div class="text-500 w-[40%]   font-medium">Quartier</div>
+                <div class="text-center flex justify-content-center align-content-center w-[60%]">
+                    <span class="text-500 w-full  font-bold text-black-alpha-80">{{ quartierDetails.libelle}}</span>
 
-    <h3 class="font-bold mb-6">Liste des Résidences du quartier</h3>
+                </div>
+
+            </li>
+            <li
+                class="flex w-full align-items-center py-3 px-2 border-top-1 surface-border flex justify-content-between">
+                <div class="text-500 w-[40%]   font-medium">Commune</div>
+                <div class="text-center flex justify-content-center align-content-center w-[60%]">
+                    <span class="text-500 w-full  font-bold text-black-alpha-80">{{ quartierDetails.commune.commune
+                        }}</span>
+
+                </div>
+
+            </li>
+        </div>
+
+        <div class="col-6">
+            <li
+                class="flex w-full align-items-center py-3 px-2 border-top-1 surface-border flex justify-content-between">
+                <div class="text-500 w-[40%]   font-medium">Nombre de résidences</div>
+                <div class="text-center flex justify-content-center align-content-center w-[60%]">
+                    <span class="text-500 w-full  font-bold text-black-alpha-80">{{ quartierDetails.residences.length
+                        }}</span>
+
+                </div>
+
+            </li>
+            <li
+                class="flex w-full align-items-center py-3 px-2 border-top-1 surface-border flex justify-content-between">
+                <div class="text-500 w-[40%]   font-medium">Département</div>
+                <div class="text-center flex justify-content-center align-content-center w-[60%]">
+                    <span class="text-500 w-full  font-bold text-black-alpha-80">{{ departement }}</span>
+
+                </div>
+
+            </li>
+        </div>
+    </section>
+    <!-- End addition -->
 
 
     <div>
+        <h3 class="font-bold">Liste des résidences</h3>
+        
         <section class="grid">
+
             <div class="col-12 md:col-6 lg:col-3" *ngFor="let element of quartierDetails.residences">
-                <p-card  header=" {{element.description}}"  style="cursor: pointer;" routerLink="/administration/menage/details/{{element.id}}" >
+
+                <!-- Card updates -->
+                <p-card header="{{element.description}}" style="cursor: pointer;"
+                    routerLink="/administration/menage/details/{{element.id}}">
                     <ng-template pTemplate="header">
                         <img alt="Card" src="../../../../assets/residences.jpeg" />
                     </ng-template>
-                 
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+                        repudiandae numquam deserunt quisquam repellat libero.
+                    </p>
+
                 </p-card>
             </div>
-          
+
         </section>
 
         <section *ngIf="quartierDetails.residences.length == 0">
-           <h4>Aucune Résidence dans ce quartier</h4>
+            <h4>Aucune Résidence dans ce quartier</h4>
         </section>
     </div>
 
