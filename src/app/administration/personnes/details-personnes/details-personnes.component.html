@@ -56,6 +56,14 @@
 
                             </li>
                             <li class="flex w-full align-items-center py-3 px-2 border-top-1 surface-border flex justify-content-between">
+                                <div class="text-500 w-[40%]   font-medium">Pourcentage de Vulnérabilité : </div>
+                                <div class="text-center flex justify-content-center align-content-center w-[60%]">
+                                    <span class="text-500 w-full  font-bold text-black-alpha-80">{{pourcentage | number:'1.2-2'}} %</span>
+
+                                </div>
+
+                            </li>
+                            <li class="flex w-full align-items-center py-3 px-2 border-top-1 surface-border flex justify-content-between">
                                 <div class="text-500 w-[40%]   font-medium">Pourcentage de Vulnérabilités : </div>
                                 <div class="text-center flex justify-content-center align-content-center w-[60%]">
                                     <span class="text-500 w-full  font-bold text-black-alpha-80">{{personne?.sexe }}</span>
@@ -98,7 +106,15 @@
                                 </div>
 
                             </li>
-                            <p-table [value]="personne.Children"
+                            <li *ngIf="!personne?.is_chef_menage" class="flex w-full align-items-center py-3 px-2 border-top-1 surface-border flex justify-content-between">
+                                <div class="text-500 w-[40%]   font-medium">Noms du Chef de Menage</div>
+                                <div class="text-center flex justify-content-center align-content-center w-[60%]">
+                                    <span class="text-500 w-full  font-bold text-black-alpha-80">{{personne?.Parent?.nom}}</span>
+
+                                </div>
+
+                            </li>
+                            <p-table *ngIf="personne?.is_chef_menage" [value]="personne.Children"
                             [paginator]="true"
                             [rows]="5"
                             [showCurrentPageReport]="true"

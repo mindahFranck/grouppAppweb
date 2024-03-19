@@ -12,7 +12,7 @@ export class DetailsPersonnesComponent implements OnInit{
   personne:any;
   loads: boolean = false;
   id: any;
-
+  pourcentage:any;
 
   constructor(private route: ActivatedRoute, private service: FormService, private breadcrumbService: BreadcrumbService,private router: Router){
       this.breadcrumbService.setItems([
@@ -26,7 +26,8 @@ export class DetailsPersonnesComponent implements OnInit{
     this.loads = true ;
     this.service.getById("personnes",this.id).subscribe({
       next: data =>{
-          this.personne = data;
+          this.personne = data.data;
+          this.pourcentage = data.pourcentage
   
 
       },

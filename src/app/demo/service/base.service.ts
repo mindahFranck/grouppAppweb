@@ -8,13 +8,15 @@ import * as FileSave from 'file-saver';
 import { Import } from '../interface/import';
 import readXlsxFile from 'read-excel-file';
 import { MessageService } from 'primeng/api';
+import { AuthentificationsService } from './auth.service';
 
 
 
 @Injectable({ providedIn: 'root' })
 export class FormService {
+  modulesAccess= this.auth.role;
 
-  constructor(private http: HttpClient, private messageService: MessageService,) { }
+  constructor(private http: HttpClient, private messageService: MessageService,private auth:AuthentificationsService) { }
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -282,5 +284,9 @@ export class FormService {
 
     return prefix + result;
   }
+  hasDroitAccess(key: any){
 
+    return key.includes(JSON.parse(this.modulesAccess));
+
+  }
 }
