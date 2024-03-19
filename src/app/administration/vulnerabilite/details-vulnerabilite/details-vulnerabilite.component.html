@@ -1,1 +1,96 @@
-<p>details-vulnerabilite works!</p>
+<app-dashboard-skeleton *ngIf="loader"></app-dashboard-skeleton>
+
+<main *ngIf="!loader">
+    <h3 class="font-bold">Détails du quartier "{{ vulnerabilitDetails.libelle | uppercase }}"</h3>
+    
+    <!-- <header class="w-full relative"  style="height: 14%;">
+        <img class='border-round-lg' style="height: 100%;" src="../../../../assets/residences.jpeg" alt="Detail hero section image" />
+    </header> -->
+
+    <!-- <h3 class="font-bold">Informations</h3> -->
+    <p class="text-500">
+        Toutes les données essentielles sur le quartier.
+    </p>
+
+    <section class="flex gap-2 mb-4">
+        <div class="col-6">
+            <li
+                class="flex w-full align-items-center py-3 px-2 border-top-1 surface-border flex justify-content-between">
+                <div class="text-500 w-[40%]   font-medium">Quartier</div>
+                <div class="text-center flex justify-content-center align-content-center w-[60%]">
+                    <span class="text-500 w-full  font-bold text-black-alpha-80">{{ vulnerabilitDetails.libelle}}</span>
+
+                </div>
+
+            </li>
+            <li
+                class="flex w-full align-items-center py-3 px-2 border-top-1 surface-border flex justify-content-between">
+                <div class="text-500 w-[40%]   font-medium">Commune</div>
+                <div class="text-center flex justify-content-center align-content-center w-[60%]">
+                    <span class="text-500 w-full  font-bold text-black-alpha-80">{{ vulnerabilitDetails.commune.commune
+                        }}</span>
+
+                </div>
+
+            </li>
+        </div>
+
+        <div class="col-6">
+            <li
+                class="flex w-full align-items-center py-3 px-2 border-top-1 surface-border flex justify-content-between">
+                <div class="text-500 w-[40%]   font-medium">Nombre de résidences</div>
+                <div class="text-center flex justify-content-center align-content-center w-[60%]">
+                    <span class="text-500 w-full  font-bold text-black-alpha-80">{{ vulnerabilitDetails.residences.length
+                        }}</span>
+
+                </div>
+
+            </li>
+            <li
+                class="flex w-full align-items-center py-3 px-2 border-top-1 surface-border flex justify-content-between">
+                <div class="text-500 w-[40%]   font-medium">Département</div>
+                <div class="text-center flex justify-content-center align-content-center w-[60%]">
+                    <span class="text-500 w-full  font-bold text-black-alpha-80">departement</span>
+
+                </div>
+
+            </li>
+        </div>
+    </section>
+    <!-- End addition -->
+
+
+    <div>
+        <h3 class="font-bold">Liste des résidences</h3>
+        <p class="text-500">
+            Toutes les résidences du quartier {{ vulnerabilitDetails.libelle }}
+        </p>
+
+        <section class="grid">
+
+            <div class="col-12 md:col-6 lg:col-3" *ngFor="let element of vulnerabilitDetails.residences">
+
+                <!-- Card updates -->
+                <p-card header="{{element.description}}" style="cursor: pointer;"
+                    routerLink="/administration/menage/details/{{element.id}}">
+                    <ng-template pTemplate="header">
+                        <img alt="Card" src="../../../../assets/residences.jpeg" />
+                    </ng-template>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+                        repudiandae numquam deserunt quisquam repellat libero.
+                    </p>
+
+                </p-card>
+            </div>
+
+        </section>
+
+        <section *ngIf="vulnerabilitDetails.residences.length == 0">
+            <h4>Aucune Résidence dans ce quartier</h4>
+        </section>
+    </div>
+
+
+</main>

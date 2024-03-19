@@ -1,8 +1,19 @@
 <app-dashoard-skeleton *ngIf="loader"></app-dashoard-skeleton>
 
 <div *ngIf="!loader">
-    <h3 class="font-bold">Détails du quartier</h3>
+
     <!-- New addition -->
+    <h3 class="font-bold">Détails du quartier "{{ quartierDetails.libelle | uppercase }}"</h3>
+    
+    <!-- <header class="w-full relative"  style="height: 14%;">
+        <img class='border-round-lg' style="height: 100%;" src="../../../../assets/residences.jpeg" alt="Detail hero section image" />
+    </header> -->
+
+    <!-- <h3 class="font-bold">Informations</h3> -->
+    <p class="text-500">
+        Toutes les données essentielles sur le quartier.
+    </p>
+
     <section class="flex gap-2 mb-4">
         <div class="col-6">
             <li
@@ -53,7 +64,10 @@
 
     <div>
         <h3 class="font-bold">Liste des résidences</h3>
-        
+        <p class="text-500">
+            Toutes les résidences du quartier {{ quartierDetails.libelle }}
+        </p>
+
         <section class="grid">
 
             <div class="col-12 md:col-6 lg:col-3" *ngFor="let element of quartierDetails.residences">
